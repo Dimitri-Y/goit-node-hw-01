@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "commander": "^11.0.0",
-    "nanoid": "^4.0.2"
+    "nanoid": "^4.0.2",
+    "node-fetch": "^2.7.0"
   }
 }

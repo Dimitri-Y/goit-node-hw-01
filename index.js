@@ -1,10 +1,4 @@
-import {
-  listContacts,
-  getContactById,
-  removeContact,
-  addContact,
-} from "./db/contacts.js";
-
+const contacts = require("contacts.js");
 const { Command } = require("commander");
 
 const program = new Command();
@@ -23,22 +17,22 @@ const argv = program.opts();
 const invokeAction = async ({ action, id, name, email, phone }) => {
   switch (action) {
     case "list":
-      const contacts = await listContacts();
-      return console.log(contacts);
+      const contacts = await contacts.listContacts();
+      return console.table(contacts);
       break;
 
     case "get":
-      const contact = await getContactById(id);
+      const contact = await contacts.getContactById(id);
       return console.log(contact);
       break;
 
     case "add":
-      const aContact = await addContact(name, email, phone);
+      const aContact = await contacts.addContact(name, email, phone);
       return console.log(aContact);
       break;
 
     case "remove":
-      const rContact = await removeContact(id);
+      const rContact = await contacts.removeContact(id);
       return console.log(rContact);
       break;
 
